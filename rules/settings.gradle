@@ -1,1 +1,3 @@
 rootProject.name = 'rules'
+
+enableFeaturePreview('GRADLE_METADATA')

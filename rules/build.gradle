@@ -1,10 +1,23 @@
 plugins {
-    id 'java'
+    id 'java-library'
     id 'maven-publish'
 }
 
 group = 'example.nebula'
-version = '1.0.0'
+version = '1.0.1'
+
+dependencies {
+    constraints {
+        api('sustitutionrule:substitute') {
+            version {
+                prefer '1.0.1'
+                reject '1.0.0'
+            }
+            because ('1.0.0 was accidentally released from dev branch')
+        }
+
+    }
+}
 
 publishing {
     publications {
