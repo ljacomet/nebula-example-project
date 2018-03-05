@@ -4,7 +4,7 @@ plugins {
 }
 
 group = 'example.nebula'
-version = '1.0.1'
+version = '1.0.2'
 
 dependencies {
     constraints {
@@ -14,6 +14,13 @@ dependencies {
                 reject '1.0.0'
             }
             because ('1.0.0 was accidentally released from dev branch')
+        }
+        api('sustitutionrule:directsubstitute') {
+            version {
+                prefer '2.1.0'
+                reject '2.0.0'
+            }
+            because ('2.0.0 was accidentally released from dev branch')
         }
 
     }
