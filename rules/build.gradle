@@ -4,7 +4,7 @@ plugins {
 }
 
 group = 'example.nebula'
-version = '1.0.2'
+version = '1.0.3'
 
 dependencies {
     constraints {
@@ -21,6 +21,13 @@ dependencies {
                 reject '2.0.0'
             }
             because ('2.0.0 was accidentally released from dev branch')
+        }
+        api('sustitutionrule:rangesubstitute') {
+            version {
+                prefer '2.5.1'
+                reject '[2.0.0,2.5.0]'
+            }
+            because ('range contains a bug')
         }
 
     }
