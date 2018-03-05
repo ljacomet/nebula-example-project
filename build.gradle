@@ -85,6 +85,7 @@ dependencies {
 
     compileOnly 'sustitutionrule:asub:1.0.0'
 
+    runtime 'example.nebula:rules:1.+' //To get the Gradle metadata applied
     runtime 'rejectrule:reject:1.+'
 
     runtime 'replacerule:replacementex0:1.0.0'
