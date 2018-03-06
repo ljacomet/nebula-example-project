@@ -4,7 +4,7 @@ plugins {
 }
 
 group = 'example.nebula'
-version = '1.0.4'
+version = '1.0.5'
 
 dependencies {
     constraints {
@@ -22,14 +22,17 @@ dependencies {
             }
             because ('2.0.0 was accidentally released from dev branch')
         }
-        api('sustitutionrule:rangesubstitute') {
-            version {
-                prefer '2.5.1' // This prefer will end up upgrading any dependency, including ones on 1.x.y
-                // An alternative is to omit the prefer above. But then target builds can be broken without its addition locally.
-                reject '[2.0.0,2.5.0]'
-            }
-            because ('range contains a bug')
-        }
+
+        // Range substitute with constraints
+//        api('sustitutionrule:rangesubstitute') {
+//            version {
+//                prefer '2.5.1' // This prefer will end up upgrading any dependency, including ones on 1.x.y
+//                // An alternative is to omit the prefer above. But then target builds can be broken without its addition locally.
+//                reject '[2.0.0,2.5.0]'
+//            }
+//            because ('range contains a bug')
+//        }
+
         api('rejectrule:reject') {
             version {
                 // The reject is the right way, but it is currently busted
