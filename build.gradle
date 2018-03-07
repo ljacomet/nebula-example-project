@@ -74,6 +74,19 @@ dependencies {
                 }
             }
         }
+
+        // sub-all pure evil with component metadata rule
+        all { ComponentMetadataDetails details ->
+            allVariants {
+                withDependencies { dependencies ->
+                    if (dependencies.remove(dependencies.find {it.group == 'sustitutionrule' && it.name == 'sub-all'})) {
+                        dependencies.add('sustitutionrule:sub-core:1.0.0', {
+                            because 'sub-core replaces sub-all which is pure evil'
+                        })
+                    }
+                }
+            }
+        }
     }
 
     nebulaRecommenderBom 'example.nebula:bom:1.+@pom'
